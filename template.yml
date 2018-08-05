@@ -6,3 +6,8 @@ Resources:
     Properties:
       Runtime: go1.x
       Handler: pitagoraOn
+      Policies:
+        Statement:
+          - Effect: Allow
+            Action: "ssm:GetParameter"
+            Resource: !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/pitagora-switch-*'
